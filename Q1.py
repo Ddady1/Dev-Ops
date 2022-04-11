@@ -5,11 +5,7 @@ def sum_of_element(elements):
     :param elements: list of integers
     :return: Return int - the sum of all elements.
     """
-    s = 0
-    for num in elements:
-        s = s + num
-
-    return s
+    return sum(elements)
 
 
 def verbing(word):
@@ -28,7 +24,14 @@ def verbing(word):
     :param word: str
     :return: Return the resulting string.
     """
-    return None
+
+    if len(word) >= 3 and word[-3:] == 'ing':
+        word += "ly"
+    elif len(word) >= 3:
+        word += "ing"
+    else:
+        return word
+    return word
 
 
 def words_concatenation(words):
@@ -43,7 +46,11 @@ def words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    strword = ''
+    for word in words:
+        strword += (' ' + word)
+
+    return strword
 
 
 def reverse_words_concatenation(words):
@@ -58,7 +65,11 @@ def reverse_words_concatenation(words):
     :param words: list of str
     :return: Return the resulting string.
     """
-    return None
+    strword = ''
+    words.reverse()
+    for word in words:
+        strword += (' ' + word)
+    return strword
 
 
 def is_unique_string(some_str):
@@ -75,7 +86,11 @@ def is_unique_string(some_str):
     :param some_str:
     :return: bool
     """
-    return None
+    unistr = ''
+    for f in some_str:
+        if f not in unistr:
+            unistr += f
+    return unistr
 
 
 def list_diff(elements):
@@ -93,7 +108,12 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
-    return None
+    ind = len(elements) - 1
+    newlist = []
+    for op in range(ind):
+        newlist.append(elements[op + 1] - elements[op])
+        op += 1
+    return newlist
 
 
 def prime_number(num):
@@ -106,7 +126,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    return None
+    if num > 1:
+        for i in range(2, num):
+            if (num % i) == 0:
+                return False
+        return True
+    return
 
 
 def palindrome_num(num):
@@ -122,7 +147,16 @@ def palindrome_num(num):
     :param num: int
     :return: bool. True is palindrome, else False
     """
-    return None
+
+    num = str(num)
+    l = len(num)
+    for i in range(0, l - 1):
+        if num[i] != num[l - 1]:
+            return False
+
+        else:
+            l -= 1
+        return True
 
 
 def pair_match(men, women):
@@ -153,11 +187,16 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    #index = 0
-    #for mk in men:
-    #    for wk in women:
-    #        mw[index] = (mk ,wk)
-    #        index =+ 1
+    num = len(men.items())
+    print(num)
+    mkey = list(men.keys())
+    mval = list(men.values())
+    wkey = list(women.keys())
+    wval = list(women.values())
+    # print(res, resv)
+    for i in range(0, num):
+        for f in range(0, num):
+            print(mval[i] - wval[f])
 
 
 
@@ -171,7 +210,7 @@ def bad_average(a, b, c):
 
     :return:
     """
-    return a + b + c / 3
+    return (a + b + c) / 3
 
 
 def best_student(grades):
@@ -194,7 +233,16 @@ def best_student(grades):
     :param grades: dict of name -> grade mapping
     :return: str. some key from the dict
     """
-    return None
+    myvals = list(grades.values())
+    mykeys = list(grades.keys())
+    num = len(myvals)
+    biggest = 0
+    index = 0
+    for i in range(0, num):
+        if myvals[i] >= biggest:
+            biggest = myvals[i]
+            index = i
+    return mykeys[index]
 
 
 def print_dict_as_table(some_dict):
@@ -258,6 +306,8 @@ def merge_dicts(dict1, dict2):
     :param dict2:
     :return:
     """
+    for k, v in dict2.items():
+        dict1[k] = v
     return dict1
 
 
@@ -273,7 +323,13 @@ def seven_boom(n):
     :param n: int. The last number for count for a 7-boom play
     :return: list of integers
     """
-    return None
+    booms = []
+    i = 1
+    while i <= n:
+        if (i % 7 == 0) or ('7' in str(i)):
+            booms.append(i)
+        i += 1
+    return booms
 
 
 def caesar_cipher(str_to_encrypt):
@@ -319,7 +375,10 @@ def sum_of_digits(digits_str):
     :param digits_str: str of numerical digits only
     :return: int representing the sum of digits
     """
-    return None
+    nums = []
+    for s in list(digits_str):
+        nums.append(int(s))
+    return sum(nums)
 
 
 if __name__ == '__main__':
