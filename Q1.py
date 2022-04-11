@@ -189,15 +189,18 @@ def pair_match(men, women):
     """
     num = len(men.items())
     print(num)
+    index = 0
+    new_list = []
     mkey = list(men.keys())
     mval = list(men.values())
     wkey = list(women.keys())
     wval = list(women.values())
-    # print(res, resv)
     for i in range(0, num):
         for f in range(0, num):
-            print(mval[i] - wval[f])
+            new_list = [mkey[i], wkey[f]]
+            index = abs(mval[i] - wval[f])
 
+            print(new_list)
 
 
 
@@ -343,20 +346,19 @@ def caesar_cipher(str_to_encrypt):
 
     :return:
     """
-    lower = list(map(chr, range(97, 123)))
-    upper = list(map(chr, range(65, 91)))
     encrypted_str = ''
+    shifter = 3
     for s in str_to_encrypt:
         if s == ' ':
             encrypted_str += s
         elif s.isupper():
-            index = upper.index(s)
-            encrypted_str += upper[index -3]
+            encrypted_str += chr((ord(s) + shifter - 65) % 26 + 65)
         else:
-            index = lower.index(s)
-            encrypted_str += lower[index -3]
-
+            encrypted_str += chr((ord(s) + shifter - 97) % 26 + 97)
     return encrypted_str
+
+
+
 
 
 def sum_of_digits(digits_str):
