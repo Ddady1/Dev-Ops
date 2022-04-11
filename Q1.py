@@ -187,18 +187,20 @@ def pair_match(men, women):
     :param women: dict mapping name -> age
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
-    num = len(men.items())
+    num = 4#len(men.items())
     print(num)
     index = 0
-    new_list = []
+    lval = 0
+    new_list = [None] * num
     mkey = list(men.keys())
     mval = list(men.values())
     wkey = list(women.keys())
     wval = list(women.values())
     for i in range(0, num):
         for f in range(0, num):
-            new_list = [mkey[i], wkey[f]]
+            new_list[lval] = [mkey[i], wkey[f]]
             index = abs(mval[i] - wval[f])
+            lval += 1
 
             print(new_list)
 
