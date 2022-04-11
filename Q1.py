@@ -271,17 +271,16 @@ def print_dict_as_table(some_dict):
     :param some_dict:
     :return:
     """
-    print('Key   Value')
+    print('Key    Value')
     print('-----------')
     index = 0
     l = some_dict.items()
     for s in l:
         if len(s[0]) > index:
             index = len(s[0])
-
     for k, v in some_dict.items():
-        if len(k[0]) < index:
-            h = index - len(k[0])
+        if len(k) < index:
+            h = index - len(k)
             print(k + (h * ' '), v)
         else:
             print(k, v)
