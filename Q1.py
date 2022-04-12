@@ -188,10 +188,8 @@ def pair_match(men, women):
     :return: tuple (men_name, women_name) such their age absolute difference is the minimal
     """
     num = len(men.items())
-    #print(num)
     index = 0
     lval = 0
-    value_list = []
     new_list = [None] * (2*num)
     mkey = list(men.keys())
     mval = list(men.values())
@@ -204,9 +202,7 @@ def pair_match(men, women):
             lval += 1
 
     new_list.sort()
-    value_list.append(new_list[0])
-
-    print(new_list)
+    return tuple(new_list[0][-2:])
 
 
 def bad_average(a, b, c):
