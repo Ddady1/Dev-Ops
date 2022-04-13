@@ -37,11 +37,11 @@ def fibonacci_fixme(n):
     a = 0
     b = 1
     for i in range(1, n):
-        a = b
         tmp = a + b
+        a = b
         b = tmp
 
-    return a
+    return tmp
 
 
 def most_frequent_name(file_path):
