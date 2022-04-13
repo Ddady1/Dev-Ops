@@ -90,7 +90,10 @@ def is_unique_string(some_str):
     for f in some_str:
         if f not in unistr:
             unistr += f
-    return unistr
+    if unistr == some_str:
+        return True
+    else:
+        return False
 
 
 def list_diff(elements):
@@ -402,6 +405,7 @@ if __name__ == '__main__':
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
     print(is_unique_string('12345tgbnh'))
+    print(is_unique_string(' '))
 
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
