@@ -59,8 +59,13 @@ def most_frequent_name(file_path):
 
     mfile = open(file_path)
     data = mfile.readlines()
-    print(len(data))
-    print(data)
+    my_dict = {}
+    for name in data:
+        if name is not my_dict.keys():
+            my_dict[name] = 1
+        else:
+            my_dict[name] += 1
+    print(my_dict)
     return None
 
 
