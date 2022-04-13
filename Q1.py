@@ -112,7 +112,7 @@ def list_diff(elements):
     :return: the diff list
     """
     ind = len(elements) - 1
-    newlist = []
+    newlist = [None]
     for op in range(ind):
         newlist.append(elements[op + 1] - elements[op])
         op += 1
