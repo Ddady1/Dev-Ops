@@ -64,7 +64,7 @@ def most_frequent_name(file_path):
         if name is not my_dict.keys():
             my_dict[name] = 1
         else:
-            my_dict[name] += 1
+            my_dict.update(name += 1)
     print(my_dict)
     return None
 
