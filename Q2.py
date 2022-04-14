@@ -56,14 +56,14 @@ def most_frequent_name(file_path):
     :param file_path: str - absolute or relative file to read names from
     :return: str - the mose frequent name. If there are many, return one of them
     """
-
+'''
     mfile = open(file_path)
     data = mfile.readlines()
     my_dict = {}
     for name in data:
         my_dict[name] = data.count(name)
     num = sorted(my_dict.items(), key=lambda x: x[1])
-    return num[-1][0]
+    return num[-1][0]'''
 
 
 
@@ -85,7 +85,13 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    return None
+    import tarfile
+    import os
+    print(dir_path)
+    with tarfile.open(dir_path + ".tgz", "w:gz") as tar:
+        for name in os.listdir(dir_path):
+            tar.add(name)
+    return name
 
 
 def replace_in_file(file_path, text, replace_text):
