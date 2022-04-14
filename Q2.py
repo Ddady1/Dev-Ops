@@ -61,18 +61,10 @@ def most_frequent_name(file_path):
     data = mfile.readlines()
     my_dict = {}
     for name in data:
-        #if name is not my_dict.keys():
-        #    my_dict[name] = 1
-        #else:
-        #    x = my_dict[name] + 1
-        #    my_dict.update({'name': x})
         my_dict[name] = data.count(name)
-    num = len(sorted(my_dict.items(), key=lambda x: x[1]))
-    return my_dict.items()[0]
-    #num = data.count('michael')
-    #print(len(data))
-    #print(len(set(data)))
-    #print(set(data))
+    num = sorted(my_dict.items(), key=lambda x: x[1])
+    return num[-1][0]
+
 
 
 
