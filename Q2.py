@@ -13,7 +13,20 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    return None
+    num = 0
+    #if len(s) % 2 != 0:
+    #   return False
+    dic = {}
+    #print(s.count('['))
+    for str in s:
+        dic[str] = s.count(str)
+    #for d in dic.values():
+    #    if d % 2 != 0:
+    #        return False
+    #if len(dic) % 2 != 0:
+    #    return False
+    print(dic)
+    #return True
 
 
 def fibonacci_fixme(n):
@@ -85,13 +98,13 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    import tarfile
+    '''import tarfile
     import os
     print(dir_path)
     with tarfile.open(dir_path + ".tgz", "w:gz") as tar:
         for name in os.listdir(dir_path):
             tar.add(name)
-    return name
+    return name'''
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -342,7 +355,7 @@ def strong_pass(password):
 
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
-    print(valid_parentheses('[[{()}](){}]'))
+    print(valid_parentheses('[[{()}]()({}]('))
 
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(6))
@@ -351,7 +364,8 @@ if __name__ == '__main__':
     print(most_frequent_name('names.txt'))
 
     print('\nfiles_backup:\n--------------------')
-    print(files_backup('python_katas/kata_2'))
+    #print(files_backup('python_katas/kata_2'))
+    print(files_backup('python_katas/kata2test'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
