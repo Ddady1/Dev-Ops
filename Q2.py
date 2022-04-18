@@ -15,7 +15,6 @@ def valid_parentheses(s):
     """
     return None
 
-
 def fibonacci_fixme(n):
     """
     2 Kata

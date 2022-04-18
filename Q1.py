@@ -151,7 +151,7 @@ def palindrome_num(num):
     :return: bool. True is palindrome, else False
     """
 
-    num = str(num)
+    '''num = str(num)
     l = len(num)
     for i in range(0, l - 1):
         if num[i] != num[l - 1]:
@@ -159,7 +159,17 @@ def palindrome_num(num):
 
         else:
             l -= 1
+        return True'''
+
+
+    num = str(num)
+    if num == num[::-1]:
         return True
+    else:
+        return False
+
+
+
 
 
 def pair_match(men, women):
