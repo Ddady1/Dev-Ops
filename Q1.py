@@ -291,8 +291,8 @@ def print_dict_as_table(some_dict):
     print('Key    Value')
     print('-----------')
     index = 0
-    l = some_dict.items()
-    for s in l:
+    le = some_dict.items()
+    for s in le:
         if len(s[0]) > index:
             index = len(s[0])
     for k, v in some_dict.items():
@@ -302,7 +302,7 @@ def print_dict_as_table(some_dict):
         else:
             print(k, v)
 
-    return
+    #return
 
 
 def merge_dicts(dict1, dict2):
