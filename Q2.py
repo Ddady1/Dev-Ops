@@ -13,6 +13,7 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
+    '''
     num = 0
     #if len(s) % 2 != 0:
     #   return False
@@ -26,7 +27,16 @@ def valid_parentheses(s):
     #if len(dic) % 2 != 0:
     #    return False
     print(dic)
-    #return True
+    #return True'''
+    while True:
+        if '()' in s:
+            s = s.replace('()', '')
+        elif '{}' in s:
+            s = s.replace('{}', '')
+        elif '[]' in s:
+            s = s.replace('[]', '')
+        else:
+            return not s
 
 def fibonacci_fixme(n):
     """
@@ -355,6 +365,11 @@ def strong_pass(password):
 if __name__ == '__main__':
     print('\nvalid_parentheses:\n--------------------')
     print(valid_parentheses('[[{()}]()({}]('))
+    print(valid_parentheses('({)}'))
+    print(valid_parentheses('[[{()}]()({})]'))
+    print(valid_parentheses('([])[({})]'))
+
+
 
     print('\nfibonacci_fixme:\n--------------------')
     print(fibonacci_fixme(6))
