@@ -1,3 +1,7 @@
+import datetime
+import tarfile
+
+
 def valid_parentheses(s):
     """
     3 Kata
@@ -107,21 +111,15 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    import tarfile
-    import os
-    print(dir_path)
-    file_list = []
-    #with tarfile.open(dir_path + ".gz", "w:gz") as tar:
-    tar = tarfile.open(dir_path + '.gz', 'w:gz')
-    #for name in os.listdir(dir_path):
-    tar.add(dir_path)
-        #file_list.append(name)
-    #print(file_list)
-    print(tar.name)
-    '''import tarfile
-    tar = tarfile.open('kata2test.gz')
 
-    print(tar.getmembers())'''
+    import tarfile
+    from datetime import date
+    todays_date = str(date.today())
+    tar = tarfile.open('backup' + '_' + dir_path + '_' + todays_date + '.tar.gz', 'w:gz')
+    tar.add(dir_path)
+    file_name = tar.name.split('\\')[-1]
+    tar.close()
+    return file_name
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -138,6 +136,13 @@ def replace_in_file(file_path, text, replace_text):
     :param replace_text: text to replace with
     :return: None
     """
+    from pathlib import Path
+    if Path(file_path).exists():
+        file_read = Path(file_path)
+        file_text = file_read.read_text()
+        file_text = file_text.replace(text, replace_text)
+        file_read.write_text(file_text)
+
     return None
 
 
