@@ -107,13 +107,21 @@ def files_backup(dir_path):
     :param dir_path: string - path to a directory
     :return: str - the backup file name
     """
-    '''import tarfile
+    import tarfile
     import os
     print(dir_path)
-    with tarfile.open(dir_path + ".tgz", "w:gz") as tar:
-        for name in os.listdir(dir_path):
-            tar.add(name)
-    return name'''
+    file_list = []
+    #with tarfile.open(dir_path + ".gz", "w:gz") as tar:
+    tar = tarfile.open(dir_path + '.gz', 'w:gz')
+    #for name in os.listdir(dir_path):
+    tar.add(dir_path)
+        #file_list.append(name)
+    #print(file_list)
+    print(tar.name)
+    '''import tarfile
+    tar = tarfile.open('kata2test.gz')
+
+    print(tar.getmembers())'''
 
 
 def replace_in_file(file_path, text, replace_text):
@@ -379,7 +387,7 @@ if __name__ == '__main__':
 
     print('\nfiles_backup:\n--------------------')
     #print(files_backup('python_katas/kata_2'))
-    print(files_backup('python_katas/kata2test'))
+    print(files_backup('kata2test'))
 
     print('\nreplace_in_file:\n--------------------')
     print(replace_in_file('mnist-predictor.yaml', '{{IMG_NAME}}', 'mnist-pred:0.0.1'))
