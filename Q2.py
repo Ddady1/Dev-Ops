@@ -62,12 +62,12 @@ def fibonacci_fixme(n):
     """
     a = 0
     b = 1
-    for i in range(1, n):
+    for i in range(n):
         tmp = a + b
         a = b
         b = tmp
 
-    return tmp
+    return a
 
 
 def most_frequent_name(file_path):
@@ -157,7 +157,13 @@ def json_configs_merge(*json_paths):
     :param json_paths:
     :return: dict - the merges json files
     """
-    return None
+    import json
+    files = json_paths
+    merg_dict = []
+    for file in files:
+        with open(file, 'r') as f:
+            merg_dict.append(json.load(f))
+    return merg_dict
 
 
 def monotonic_array(lst):
@@ -169,7 +175,12 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    return None
+    '''flag = 0
+    if lst[0] > lst[-1]:
+        for num in range (len(lst)):
+            if num[flag] >
+
+    return None'''
 
 
 def matrix_avg(mat, rows=None):
