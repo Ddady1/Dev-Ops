@@ -175,12 +175,23 @@ def monotonic_array(lst):
     :param lst: list of numbers (int, floats)
     :return: bool: indicating for monotonicity
     """
-    '''flag = 0
+    num = 0
     if lst[0] > lst[-1]:
-        for num in range (len(lst)):
-            if num[flag] >
+        for num in range(len(lst)-1):
+            if lst[num] > lst[num+1]:
+                num += 1
+            else:
+                return False
+        return True
+    else:
+        for num in range(len(lst)-1):
+            if lst[num] < lst[num+1]:
+                num += 1
+            else:
+                return False
+        return True
 
-    return None'''
+
 
 
 def matrix_avg(mat, rows=None):
@@ -210,7 +221,14 @@ def merge_sorted_lists(l1, l2):
     :param l2: list of integers
     :return: list: sorted list combining l1 and l2
     """
-    return None
+    num1 = 0
+    num2 = 0
+    i = 0
+    num2_len = len(l2) - 1
+    while l2[i] < l1[num1]:
+        l1.insert(num1, l2[i])
+        i += 1
+
 
 
 def longest_common_substring(str1, str2):
@@ -413,6 +431,9 @@ if __name__ == '__main__':
 
     print('\nmonotonic_array:\n--------------------')
     print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
+    print(monotonic_array([1, 2, 3, 6, 8, 9, 10]))
+    print(monotonic_array([12.5, 10, 8, 7.5, 3, -5]))
+    print(monotonic_array([13, 9, 7, 8, 5, 1]))
 
     print('\nmatrix_avg:\n--------------------')
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]], rows=[0, 2]))
