@@ -178,14 +178,14 @@ def monotonic_array(lst):
     num = 0
     if lst[0] > lst[-1]:
         for num in range(len(lst)-1):
-            if lst[num] > lst[num+1]:
+            if lst[num] >= lst[num+1]:
                 num += 1
             else:
                 return False
         return True
     else:
         for num in range(len(lst)-1):
-            if lst[num] < lst[num+1]:
+            if lst[num] <= lst[num+1]:
                 num += 1
             else:
                 return False
@@ -205,7 +205,19 @@ def matrix_avg(mat, rows=None):
     :param rows: list of unique integers in the range [0, 2] and length of maximum 3
     :return: int - the average values
     """
-    return None
+    op = 0
+    num = 0
+    if not rows:
+        for lst in mat:
+            num += sum(lst)
+            op += len(lst)
+        return num / op
+    else:
+        for lst in rows:
+            num += sum(mat[lst])
+            op += len(mat[lst])
+        return num / op
+
 
 
 def merge_sorted_lists(l1, l2):
@@ -312,7 +324,23 @@ def is_valid_email(mail_str):
     :param mail_str: mail to check
     :return: bool: True if it's a valid mail (otherwise either False is returned or the program can crash)
     """
-    return None
+    import socket
+    user = 0
+    dom = 0
+    new_list = mail_str.split('@')
+    if new_list[0].startswith('_'):
+        return False
+    if not new_list[0].isalnum() and '._' in new_list[0]:
+        user = 0
+    else:
+        user = 1
+    ip4_add = socket.gethostbyname(new_list[1])
+    if ip4_add:
+        dom = 1
+    if user == 1 and dom == 1:
+        return True
+    else:
+        return False
 
 
 def pascal_triangle(lines):
@@ -430,7 +458,7 @@ if __name__ == '__main__':
     print(json_configs_merge('default.json', 'local.json'))
 
     print('\nmonotonic_array:\n--------------------')
-    print(monotonic_array([1, 2, 3, 6, 8, 9, 0]))
+    print(monotonic_array([1, 2, 3, 6, 6, 8, 9, 0]))
     print(monotonic_array([1, 2, 3, 6, 8, 9, 10]))
     print(monotonic_array([12.5, 10, 8, 7.5, 3, -5]))
     print(monotonic_array([13, 9, 7, 8, 5, 1]))
