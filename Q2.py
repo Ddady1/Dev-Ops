@@ -279,7 +279,13 @@ def longest_common_prefix(str1, str2):
     :param str2: str
     :return: str - the longest common prefix
     """
-    return None
+    new_list = ''
+    num = 0
+    while str1[num] == str2[num]:
+        new_list += str1[num]
+        num += 1
+
+    return new_list
 
 
 def rotate_matrix(mat):
@@ -305,6 +311,13 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
+    num_lists = len(mat)
+    len_lists = len(mat[num_lists - 1])
+    small_list = []
+    new_list = []
+    for i in range(len_lists + 1):
+        small_list = mat[num_lists-1][i]
+    print(num_lists, len_lists)
     return None
 
 
@@ -474,7 +487,7 @@ if __name__ == '__main__':
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
 
     print('\nlongest_common_prefix:\n--------------------')
-    print(longest_common_prefix('abcd', 'ttty'))
+    print(longest_common_prefix('The Linux kernel is an amazing software', 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'))
 
     print('\nrotate_matrix:\n--------------------')
     print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
