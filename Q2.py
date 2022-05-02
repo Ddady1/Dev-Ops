@@ -311,14 +311,14 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    num_lists = len(mat)
+    '''num_lists = len(mat)
     len_lists = len(mat[num_lists - 1])
     small_list = []
     new_list = []
     for i in range(len_lists + 1):
         small_list = mat[num_lists-1][i]
     print(num_lists, len_lists)
-    return None
+    return None'''
 
 
 def is_valid_email(mail_str):
@@ -389,6 +389,9 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
+    for i in range(lines):
+        print(11 ** i)
+
     return None
 
 
@@ -496,7 +499,7 @@ if __name__ == '__main__':
     print(is_valid_email('israel.israeli@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
+    print(pascal_triangle(6))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
