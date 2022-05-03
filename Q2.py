@@ -429,7 +429,19 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    return None
+    new_dic = {}
+    new_list = []
+    for let in text:
+        if let in new_dic:
+            new_dic[let] += 1
+        else:
+            new_dic[let] = 1
+    for key, value in new_dic.items():
+        temp = [key, value]
+        new_list.append(temp)
+    return new_list
+
+
 
 
 def strong_pass(password):
@@ -445,7 +457,28 @@ def strong_pass(password):
 
     This function returns True if the given password is strong enough
     """
-    return None
+    if len(password) < 6:
+        return False
+    digit = False
+    lower = False
+    upper = False
+    spec = False
+
+    for i in password:
+        if i.isdigit():
+            digit = True
+        elif i.islower():
+            lower = True
+        elif i.isupper():
+            upper = True
+        elif not i.isidentifier():
+            spec = True
+    if digit and lower and upper and spec:
+        return True
+    else:
+        return False
+
+
 
 
 if __name__ == '__main__':
@@ -484,7 +517,7 @@ if __name__ == '__main__':
     print(matrix_avg([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
 
     print('\nmerge_sorted_lists:\n--------------------')
-    print(merge_sorted_lists([1, 4, 77, 9, 13343], [-7, 0, 7, 23]))
+    print(merge_sorted_lists([1, 4, 9, 77, 13343], [-7, 0, 7, 23]))
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
@@ -509,3 +542,4 @@ if __name__ == '__main__':
 
     print('\nstrong_pass:\n--------------------')
     print(strong_pass('##$FgC7^^5a'))
+    print(strong_pass('Fg#5a'))
