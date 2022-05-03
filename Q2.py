@@ -409,7 +409,26 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    return None
+    def flat(flist):
+        fnew = []
+        for fnum in flist:
+            fnew.append(fnum)
+        return fnew
+
+    new_list = []
+    for num in lst:
+        print(type(num))
+        if type(num) is 'list':
+            #flaten = flat(num)
+            #new_list.append(flaten)
+            print('type list')
+        else:
+            new_list.append(num)
+    return new_list
+
+
+
+
 
 
 def str_compression(text):
