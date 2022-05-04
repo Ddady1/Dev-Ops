@@ -427,7 +427,7 @@ def list_flatten(lst):
     :param lst: list of integers of another list
     :return: flatten list
     """
-    def flat(flist):
+    '''def flat(flist):
         fnew = []
         for fnum in flist:
             if type(fnum) is list:
@@ -446,7 +446,22 @@ def list_flatten(lst):
             #print('type list')
         else:
             new_list.append(num)
-    return new_list
+    return new_list'''
+    i = 0
+    check_str = []
+    new_str = []
+
+    for i in range(len(lst)):
+        if type(lst[i]) is list:
+            print('Is List')
+            print(lst[i])
+            check_str += lst[i]
+            print(check_str)
+
+        else:
+            new_str += str(lst[i])
+            i += 1
+    return new_str
 
 
 
