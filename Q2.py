@@ -319,6 +319,24 @@ def rotate_matrix(mat):
         small_list = mat[num_lists-1][i]
     print(num_lists, len_lists)
     return None'''
+    x = len(mat) - 1
+    flag = x
+    lenx = len(mat[x])
+    print(lenx)
+    rotated = []
+    temp_list = []
+    for num in range(lenx):
+        for sec in range(x):
+            #if x == flag:
+                temp_list.append(mat[x][sec])
+                sec -= 1
+            #else:
+            #    temp_list.append((mat[x][num]) - lenx)
+             #   x -= 1
+        rotated.append(temp_list)
+        temp_list = []
+
+    print(rotated)
 
 
 def is_valid_email(mail_str):
@@ -549,7 +567,7 @@ if __name__ == '__main__':
     print(longest_common_prefix('The Linux kernel is an amazing software', 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'))
 
     print('\nrotate_matrix:\n--------------------')
-    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]]))
+    print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]))
 
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
