@@ -205,7 +205,7 @@ def pair_match(men, women):
     num = len(men.items())
     index = 0
     lval = 0
-    new_list = [None] * (2*num)
+    new_list = [None] * (num*num)
     mkey = list(men.keys())
     mval = list(men.values())
     wkey = list(women.keys())
@@ -431,7 +431,7 @@ if __name__ == '__main__':
     print(palindrome_num(577))
 
     print('\npair_match:\n--------------------')
-    print(pair_match(
+    '''print(pair_match(
         {
             "John": 20,
             "Abraham": 45
@@ -439,6 +439,18 @@ if __name__ == '__main__':
         {
             "July": 18,
             "Kim": 26
+        }
+    ))'''
+    print(pair_match(
+        {
+            "Ben": 34,
+            "Ronaldo": 37,
+            "Ancelotti": 62
+        },
+        {
+            "Yasmin": 22,
+            "Inbar": 18,
+            "Angelina": 52
         }
     ))
 
