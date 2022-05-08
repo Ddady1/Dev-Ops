@@ -111,6 +111,8 @@ def list_diff(elements):
     :param elements: list of integers
     :return: the diff list
     """
+    if not elements:
+        return elements
     ind = len(elements) - 1
     newlist = [None]
     for op in range(ind):
