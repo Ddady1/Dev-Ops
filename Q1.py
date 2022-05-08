@@ -258,7 +258,7 @@ def best_student(grades):
     biggest = 0
     index = 0
     for i in range(0, num):
-        if myvals[i] >= biggest:
+        if myvals[i] > biggest:
             biggest = myvals[i]
             index = i
     return mykeys[index]
