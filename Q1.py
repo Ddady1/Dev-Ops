@@ -49,6 +49,7 @@ def words_concatenation(words):
     strword = ''
     for word in words:
         strword += (' ' + word)
+        strword = strword.lstrip()
 
     return strword
 
@@ -69,6 +70,7 @@ def reverse_words_concatenation(words):
     words.reverse()
     for word in words:
         strword += (' ' + word)
+        strword = strword.lstrip()
     return strword
 
 
@@ -131,12 +133,12 @@ def prime_number(num):
     :param num: the number to check
     :return: bool. True if prime, else False
     """
-    if num > 1:
+    while num > 1 and type(num) is int:
         for i in range(2, num):
             if (num % i) == 0:
                 return False
         return True
-    return
+    return False
 
 
 def palindrome_num(num):
@@ -261,6 +263,7 @@ def best_student(grades):
         if myvals[i] > biggest:
             biggest = myvals[i]
             index = i
+
     return mykeys[index]
 
 
@@ -304,7 +307,7 @@ def print_dict_as_table(some_dict):
         else:
             print(k, v)
 
-    #return
+    return
 
 
 def merge_dicts(dict1, dict2):
@@ -413,6 +416,9 @@ if __name__ == '__main__':
 
     print('\nreverse_words_concatenation:\n--------------------')
     print(reverse_words_concatenation(['take', 'me', 'home']))
+    print(reverse_words_concatenation(['']))
+    print(reverse_words_concatenation(['me']))
+    print(reverse_words_concatenation(['me', 'me', 'me']))
 
     print('\nis_unique_string:\n--------------------')
     print(is_unique_string('aasdssdsederd'))
@@ -421,6 +427,7 @@ if __name__ == '__main__':
 
     print('\nlist_diff:\n--------------------')
     print(list_diff([1, 2, 3, 8, 77, 0]))
+    print(list_diff([]))
 
     print('\nprime_number:\n--------------------')
     print(prime_number(5))
@@ -431,7 +438,7 @@ if __name__ == '__main__':
     print(palindrome_num(577))
 
     print('\npair_match:\n--------------------')
-    '''print(pair_match(
+    print(pair_match(
         {
             "John": 20,
             "Abraham": 45
@@ -439,18 +446,6 @@ if __name__ == '__main__':
         {
             "July": 18,
             "Kim": 26
-        }
-    ))'''
-    print(pair_match(
-        {
-            "Ben": 34,
-            "Ronaldo": 37,
-            "Ancelotti": 62
-        },
-        {
-            "Yasmin": 22,
-            "Inbar": 18,
-            "Angelina": 52
         }
     ))
 
@@ -473,6 +468,10 @@ if __name__ == '__main__':
         "Natan": 99,
         "Efraim": 65,
         "Rachel": 95
+    }))
+    print(print_dict_as_table({
+        "Yuval": 23,
+        "Alex": 59
     }))
 
     print('\nmerge_dicts:\n--------------------')
