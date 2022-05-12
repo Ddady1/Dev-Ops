@@ -407,10 +407,24 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    for i in range(lines):
+    '''for i in range(lines):
         print(11 ** i)
 
-    return None
+    return None'''
+    static = 1
+    #i = 1
+    k = 0
+    f = 1
+    pascal = []
+    print(static)
+    for i in range(lines):
+        temp = f * ((lines - k) / (i + 1))
+        print(int(temp))
+        f = temp
+        k += 1
+        i += 1
+
+
 
 
 def list_flatten(lst):
@@ -588,7 +602,7 @@ if __name__ == '__main__':
     print(is_valid_email('israel.israeli@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(6))
+    print(pascal_triangle(9))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
