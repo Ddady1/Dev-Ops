@@ -412,14 +412,13 @@ def pascal_triangle(lines):
 
     return None'''
     static = 1
-    #i = 1
     k = 0
     f = 1
     pascal = []
-    print(static)
+    print(static, end=" ")
     for i in range(lines):
         temp = f * ((lines - k) / (i + 1))
-        print(int(temp))
+        print(int(temp), end=" ")
         f = temp
         k += 1
         i += 1
@@ -602,7 +601,7 @@ if __name__ == '__main__':
     print(is_valid_email('israel.israeli@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(9))
+    print(pascal_triangle(0))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
