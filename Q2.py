@@ -415,16 +415,18 @@ def pascal_triangle(lines):
     k = 0
     f = 1
     pascal = ''
-    print(static)
+    #print(static)
     # Must run the 'for' times of the lines
-    for i in range(lines):
-        temp = f * ((lines - k) / (i + 1))
-        pascal += (str(int(temp)) + ' ')
-        #print(int(temp), end=" ")
-        f = temp
-        k += 1
-        i += 1
-    print(static, pascal)
+    for loop in range(lines):
+        for i in range(loop):
+            temp = f * ((lines - k) / (i + 1))
+            pascal += (str(int(temp)) + ' ')
+            #print(int(temp), end=" ")
+            f = temp
+            k += 1
+            i += 1
+        print(static, pascal)
+        loop += 1
 
 
 
@@ -603,7 +605,7 @@ if __name__ == '__main__':
     print(is_valid_email('israel.israeli@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(4))
+    print(pascal_triangle(7))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
