@@ -339,6 +339,8 @@ def rotate_matrix(mat):
     print(rotated)
 
 
+
+
 def is_valid_email(mail_str):
     """
     3 Kata
@@ -411,7 +413,7 @@ def pascal_triangle(lines):
         print(11 ** i)
 
     return None'''
-    static = 1
+    '''static = 1
     k = 0
     f = 1
     pascal = ''
@@ -426,7 +428,14 @@ def pascal_triangle(lines):
             k += 1
             i += 1
         print(static, pascal)
-        loop += 1
+        loop += 1'''
+
+    for i in range(1, lines + 1):
+        pas = 1
+        for j in range(1, i + 1):
+            print(pas, end=' ')
+            pas = pas * (i - j) // j
+        print()
 
 
 
@@ -605,7 +614,7 @@ if __name__ == '__main__':
     print(is_valid_email('israel.israeli@gmail.com'))
 
     print('\npascal_triangle:\n--------------------')
-    print(pascal_triangle(7))
+    print(pascal_triangle(10))
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
