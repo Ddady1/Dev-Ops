@@ -311,32 +311,23 @@ def rotate_matrix(mat):
     :param mat:
     :return: list of lists - rotate matrix
     """
-    '''num_lists = len(mat)
-    len_lists = len(mat[num_lists - 1])
-    small_list = []
-    new_list = []
-    for i in range(len_lists + 1):
-        small_list = mat[num_lists-1][i]
-    print(num_lists, len_lists)
-    return None'''
-    x = len(mat) - 1
-    flag = x
-    lenx = len(mat[x])
-    print(lenx)
-    rotated = []
-    temp_list = []
-    for num in range(lenx):
-        for sec in range(x):
-            #if x == flag:
-                temp_list.append(mat[x][sec])
-                sec -= 1
-            #else:
-            #    temp_list.append((mat[x][num]) - lenx)
-             #   x -= 1
-        rotated.append(temp_list)
-        temp_list = []
 
-    print(rotated)
+    rotated = []
+    x = len(mat)
+    i = len(mat[x - 1])
+    flag = 0
+    while i > 0:
+        loop = x - 1
+        temp = []
+        for n in range(x):
+            temp.append(mat[loop][flag])
+            loop -= 1
+            n += 1
+        rotated.append(temp)
+        flag += 1
+        i -= 1
+    return rotated
+
 
 
 
@@ -409,26 +400,6 @@ def pascal_triangle(lines):
     :param lines: int
     :return: None
     """
-    '''for i in range(lines):
-        print(11 ** i)
-
-    return None'''
-    '''static = 1
-    k = 0
-    f = 1
-    pascal = ''
-    #print(static)
-    # Must run the 'for' times of the lines
-    for loop in range(lines):
-        for i in range(loop):
-            temp = f * ((lines - k) / (i + 1))
-            pascal += (str(int(temp)) + ' ')
-            #print(int(temp), end=" ")
-            f = temp
-            k += 1
-            i += 1
-        print(static, pascal)
-        loop += 1'''
 
     for i in range(1, lines + 1):
         pas = 1
@@ -609,7 +580,7 @@ if __name__ == '__main__':
 
     print('\nrotate_matrix:\n--------------------')
     print(rotate_matrix([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10], [11, 12, 13, 14, 15]]))
-
+    print(rotate_matrix([[1, 2, 3], [4, 5, 6], [7, 8, 9], [10, 11, 12]]))
     print('\nis_valid_email:\n--------------------')
     print(is_valid_email('israel.israeli@gmail.com'))
 
