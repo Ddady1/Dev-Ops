@@ -17,21 +17,7 @@ def valid_parentheses(s):
     s = '[[{()}](){}]'  -> True
     s = '[{]}'          -> False
     """
-    '''
-    num = 0
-    #if len(s) % 2 != 0:
-    #   return False
-    dic = {}
-    #print(s.count('['))
-    for str in s:
-        dic[str] = s.count(str)
-    #for d in dic.values():
-    #    if d % 2 != 0:
-    #        return False
-    #if len(dic) % 2 != 0:
-    #    return False
-    print(dic)
-    #return True'''
+
     while True:
         if '()' in s:
             s = s.replace('()', '')
@@ -444,7 +430,7 @@ def list_flatten(lst):
         else:
             new_list.append(num)
     return new_list'''
-    i = 0
+    '''i = 0
     check_str = []
     new_str = []
 
@@ -458,7 +444,18 @@ def list_flatten(lst):
         else:
             new_str += str(lst[i])
             i += 1
-    return new_str
+    return new_str'''
+    flat_list = []
+    for sublist in lst:
+        if type(sublist) is not list:
+            flat_list.append(sublist)
+        else:
+            for num in sublist:
+                flat_list.append(num)
+
+    print(flat_list)
+
+
 
 
 
@@ -589,6 +586,7 @@ if __name__ == '__main__':
 
     print('\nlist_flatten:\n--------------------')
     print(list_flatten([1, 2, [3, 4, [4, 5], 7], 8]))
+    print(list_flatten([1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0, [3]]]))
 
     print('\nstr_compression:\n--------------------')
     print(str_compression('aaaabdddddhgf'))
