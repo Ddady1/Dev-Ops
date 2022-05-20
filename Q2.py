@@ -145,10 +145,10 @@ def json_configs_merge(*json_paths):
     """
     import json
     files = json_paths
-    merg_dict = []
+    merg_dict = {}
     for file in files:
         with open(file, 'r') as f:
-            merg_dict.append(json.load(f))
+            merg_dict = json.load(f)
     return merg_dict
 
 
@@ -246,7 +246,18 @@ def longest_common_substring(str1, str2):
     :param str2: str
     :return: str - the longest common substring
     """
-    return None
+    answer = ''
+    len1, len2 = len(str1), len(str2)
+    for i in range(len1):
+        match = ''
+        for j in range(len2):
+            if i + j < len1 and str1[i + j] == str2[j]:
+                match += str2[j]
+            else:
+                if len(match) > len(answer):
+                    answer = match
+                match = ''
+    return answer
 
 
 def longest_common_prefix(str1, str2):
@@ -393,7 +404,6 @@ def pascal_triangle(lines):
             print(pas, end=' ')
             pas = pas * (i - j) // j
         print()
-
 
 
 def list_flatten(lst):
@@ -571,6 +581,7 @@ if __name__ == '__main__':
 
     print('\nlongest_common_substring:\n--------------------')
     print(longest_common_substring('abcdefg', 'bgtcdesd'))
+    print(longest_common_substring('I am coming home', 'I think today is the day i am coming home after a long time.'))
 
     print('\nlongest_common_prefix:\n--------------------')
     print(longest_common_prefix('The Linux kernel is an amazing software', 'The Linux kernel is a mostly free and open-source, monolithic, modular, multitasking, Unix-like operating system kernel.'))
