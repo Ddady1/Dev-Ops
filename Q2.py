@@ -148,7 +148,7 @@ def json_configs_merge(*json_paths):
     merg_dict = {}
     for file in files:
         with open(file, 'r') as f:
-            merg_dict = json.load(f)
+            merg_dict.update(json.load(f))
     return merg_dict
 
 
