@@ -479,7 +479,7 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    new_dic = {}
+    '''new_dic = {}
     new_list = []
     for let in text:
         if let in new_dic:
@@ -489,7 +489,19 @@ def str_compression(text):
     for key, value in new_dic.items():
         temp = [key, value]
         new_list.append(temp)
-    return new_list
+    return new_list'''
+
+    new_lst = []
+    let = text[0]
+    num = 0
+    for tmp in range(len(text)):
+        if text[tmp] == text[tmp - 1]:
+            num += 1
+        else:
+            new_lst.append(text[tmp])
+            num = 1
+    return new_lst
+
 
 
 
