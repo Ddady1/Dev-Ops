@@ -489,10 +489,10 @@ def str_compression(text):
     :param text: str
     :return: list representing the compressed form of the string
     """
-    new_lst = []
-    num = 0
-    for tmp in range(len(text)):
-        if text[tmp] == text[tmp - 1]:
+    new_lst = [text[0]]
+    num = 1
+    for tmp in range(1, len(text)):
+        if text[tmp] == text[tmp - 1]:#text[tmp - 1]:
             num += 1
         else:
             if num > 1:
@@ -600,7 +600,8 @@ if __name__ == '__main__':
     print(list_flatten([1, [], [1, 2, [4, 0, [5], 6], [5, 4], 34, 0, [3]]]))
 
     print('\nstr_compression:\n--------------------')
-    print(str_compression('aaaabdddddhgf'))
+    #print(str_compression('aaaabdddddhgf'))
+    print(str_compression('AABBCC'))
 
     print('\nstrong_pass:\n--------------------')
     print(strong_pass('##$FgC7^^5a'))
